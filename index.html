@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunset Biological Dentistry | Biological Dentistry in West Hollywood, CA</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;600;700&display=swap');
+
+    /* ============================================================
+       CSS VARIABLES
+    ============================================================ */
+    :root {
+      --gold:       #b79a5d;
+      --gold-dark:  #9a7f48;
+      --black:      #000000;
+      --text:       #121212;
+      --text-light: #666666;
+      --bg-warm-1:  #f9f8f6;
+      --bg-warm-2:  #f1eee8;
+      --white:      #ffffff;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans:  'Lato', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.75;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ============================================================
+       SHARED UTILITIES
+    ============================================================ */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-divider {
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 14px 0 22px;
+    }
+    .section-divider.center { margin: 14px auto 22px; }
+
+    /* Image placeholder */
+    .img-placeholder {
+      width: 100%;
+      background: #e8e4de;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #a09888;
+      border: 1.5px dashed #c8bfb0;
+    }
+
+    /* ============================================================
+       SCROLL ANIMATIONS
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger .reveal:nth-child(1) { transition-delay: 0s; }
+    .stagger .reveal:nth-child(2) { transition-delay: 0.12s; }
+    .stagger .reveal:nth-child(3) { transition-delay: 0.24s; }
+    .stagger .reveal:nth-child(4) { transition-delay: 0.36s; }
+
+    /* ============================================================
+       TOP BAR
+    ============================================================ */
+    .top-bar {
+      background: var(--black);
+      padding: 9px 0;
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.75);
+    }
+    .top-bar .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .top-bar a { color: rgba(255,255,255,0.75); }
+    .top-bar a:hover { color: var(--gold); transition: color 0.2s; }
+
+    /* ============================================================
+       HEADER / NAV
+    ============================================================ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 18px 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      flex-shrink: 0;
+      /* SWAP: Replace this CSS logo with <img src="logo-horizontal.png" alt="Sunset Biological Dentistry" height="52"> */
+    }
+    .logo-css {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+    .logo-text-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .logo-main {
+      font-family: var(--font-serif);
+      font-size:16px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .logo-sub {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    /* Nav */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+      white-space: nowrap;
+    }
+    .site-nav li a {
+      font-family: var(--font-serif);
+      font-size:16px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .site-nav li a:hover { color: var(--gold); }
+
+    /* Header CTAs */
+    .header-ctas {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .btn-outline {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 9px 18px;
+      border: 1.5px solid var(--text);
+      color: var(--text);
+      border-radius: 3px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-outline:hover {
+      background: var(--text);
+      color: var(--white);
+    }
+    .btn-primary {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      padding: 10px 20px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 3px;
+      border: 1.5px solid var(--black);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      background: #2a2a2a;
+      border-color: #2a2a2a;
+    }
+    .btn-gold {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      background: var(--gold);
+      color: var(--white);
+      border-radius: 2px;
+      border: none;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-gold:hover { background: var(--gold-dark); }
+    .btn-ghost {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.6);
+      border-radius: 2px;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--white);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Two-column grid: text left, photo right */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      min-height: 90vh;
+    }
+    .hero-content {
+      display: flex;
+      align-items: center;
+      padding: 80px 40px;
+      background: linear-gradient(105deg, #0a0a0a 70%, rgba(10,10,10,0.7) 100%);
+    }
+    .hero-content .container {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+      display: flex;
+      justify-content: center; /* centers text block within left column */
+    }
+    .hero-text {
+      width: 78%;
+      max-width: 560px;
+    }
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 120px;
+      background: linear-gradient(to right, #0a0a0a, transparent);
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .hero-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 22px;
+    }
+    .hero-sub {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Scrolling marquee */
+    .hero-marquee {
+      position: relative;
+      z-index: 2;
+      padding: 16px 0;
+      background: var(--gold);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      align-items: center;
+      animation: marquee 80s linear infinite;
+    }
+    .marquee-item {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.80);
+      padding: 0 28px;
+    }
+    .marquee-dot {
+      color: rgba(0,0,0,0.35);
+      font-size:18px;
+      vertical-align: middle;
+    }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+
+    /* ============================================================
+       ZIGZAG SECTIONS
+    ============================================================ */
+    .zigzag {
+      padding: 90px 0;
+    }
+    .zigzag.bg-warm { background: var(--bg-warm-1); }
+    .zigzag-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .zigzag-inner.reverse { direction: rtl; }
+    .zigzag-inner.reverse > * { direction: ltr; }
+
+    .zigzag-text h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+    .zigzag-text p {
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+    .zigzag-text p:last-of-type { margin-bottom: 28px; }
+    .text-link {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
+    .text-link:hover { gap: 14px; }
+    .text-link::after { content: '→'; }
+
+    .zigzag-image .img-placeholder {
+      min-height: 460px;
+      border-radius: 4px;
+    }
+
+    /* Services checklist */
+    .services-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+      margin: 20px 0 28px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size:16px;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .check-item::before {
+      content: '✓';
+      color: var(--gold);
+      font-size:16px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ============================================================
+       MID-PAGE CTA
+    ============================================================ */
+    .midpage-cta {
+      background: var(--black);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .midpage-cta .logo-cta {
+      /* SWAP: Replace with logo PNG (white/gold version) */
+      font-family: var(--font-serif);
+      font-size:16px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 30px;
+      display: block;
+    }
+    .midpage-cta h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: var(--white);
+      max-width: 640px;
+      margin: 0 auto 16px;
+      line-height: 1.3;
+    }
+    .midpage-cta p {
+      font-size:16px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 34px;
+    }
+    .midpage-cta p span { color: var(--gold); }
+
+    /* ============================================================
+       SERVICES GRID
+    ============================================================ */
+    .services-section {
+      padding: 90px 0;
+      background: var(--white);
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .services-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      transform: translateY(-4px);
+    }
+    .service-card .img-placeholder {
+      min-height: 200px;
+    }
+    .service-card-body {
+      padding: 22px 22px 26px;
+    }
+    .service-card-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .service-card-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--bg-warm-2);
+      margin: 10px 0 14px;
+    }
+    .service-card-body p {
+      font-size:18px;
+      color: var(--text-light);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .card-link {
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 10px; }
+    .card-link::after { content: '→'; }
+
+    /* ============================================================
+       TRUST / CERTIFICATIONS BAR
+    ============================================================ */
+    .trust-bar {
+      background: var(--bg-warm-2);
+      padding: 56px 0;
+    }
+    .trust-bar-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .trust-bar-header h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-logo-item {
+      text-align: center;
+    }
+    .trust-logo-box {
+      width: 120px;
+      height: 60px;
+      background: rgba(183,154,93,0.08);
+      border: 1px solid rgba(183,154,93,0.2);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ============================================================
+       PATIENT REVIEWS
+    ============================================================ */
+    .reviews-section {
+      background: var(--bg-warm-1);
+      padding: 90px 0;
+      position: relative;
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .reviews-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+      font-weight: 700;
+      color: var(--text);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--white);
+      padding: 32px 28px;
+      border-radius: 4px;
+      border-top: 3px solid var(--gold);
+    }
+    .review-stars {
+      color: var(--gold);
+      font-size:16px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+    .review-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .review-author {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ============================================================
+       ADDRESS / CONTACT
+    ============================================================ */
+    .address-section {
+      background: var(--bg-warm-2);
+      padding: 80px 0;
+    }
+    .address-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .address-col h4 {
+      font-family: var(--font-sans);
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .address-col p,
+    .address-col address {
+      font-style: normal;
+      font-size:16px;
+      line-height: 1.8;
+      color: var(--text);
+    }
+    .address-col a {
+      color: var(--gold);
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .address-col a:hover { opacity: 0.75; }
+    .hours-table { width: 100%; }
+    .hours-table tr td {
+      font-size:16px;
+      padding: 4px 0;
+      color: var(--text);
+    }
+    .hours-table tr td:first-child {
+      font-weight: 600;
+      padding-right: 20px;
+      white-space: nowrap;
+    }
+    .map-placeholder {
+      width: 100%;
+      height: 240px;
+      border-radius: 4px;
+    }
+    .directions-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size:16px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .directions-link::after { content: '→'; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .site-footer {
+      background: var(--black);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy {
+      font-size:16px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.3px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size:16px;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .zigzag-inner { gap: 40px; }
+      /* Tablet hero: narrow columns, smaller type */
+      .hero-inner { grid-template-columns: 58% 42%; min-height: 80vh; }
+      .hero-content { padding: 60px 32px; }
+      .hero-h1 { font-size: clamp(2rem, 3.5vw, 2.8rem); }
+      .hero-sub { font-size:16px; }
+    }
+    @media (max-width: 768px) {
+      .top-bar .container { flex-direction: column; gap: 4px; text-align: center; }
+      .header-inner { flex-wrap: wrap; }
+      .site-nav { display: none; }
+      .header-ctas .btn-outline { display: none; }
+      /* Mobile hero: stack vertically — text on top, photo below */
+      .hero-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        min-height: auto;
+      }
+      .hero-content {
+        padding: 60px 0 48px;
+        background: #0a0a0a;
+        order: 1;
+      }
+      .hero-photo {
+        order: 2;
+        height: 380px;
+      }
+      .hero-photo::before { display: none; }
+      .hero-h1 { font-size: 2rem; }
+      .hero-text { max-width: 90%; margin: 0 auto; text-align: center; }
+      .hero-sub { text-align: center; }
+      .hero-ctas { justify-content: center; }
+      .hero-eyebrow { text-align: center; }
+      .usp-grid { grid-template-columns: 1fr; }
+      .usp-divider { display: none; }
+      .zigzag-inner,
+      .zigzag-inner.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 32px;
+      }
+      .zigzag-inner.reverse > * { direction: ltr; }
+      .services-checklist { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .address-grid { grid-template-columns: 1fr; gap: 36px; }
+      .trust-logos { gap: 24px; }
+    }
+  </style>
+  <!-- ===== v6 solid panel + image right ===== -->
+  <style>
+    .hero{background:#f1eee8;}
+    .hero-inner{grid-template-columns:50% 50%;min-height:600px;background:#f1eee8;}
+    .hero-content{background:#f1eee8;}
+    .hero-text{width:88%;max-width:610px;}
+    .hero-photo{background:#f1eee8;overflow:hidden;position:relative;}
+    .hero-photo img{height:100%;width:100%;max-width:none;object-fit:cover;object-position:center top;display:block;}
+    .hero-photo::before{display:none;}
+    .hero-eyebrow{color:var(--gold-dark);}
+    .hero-eyebrow::after{content:'';display:block;width:54px;height:2px;background:var(--gold);margin-top:16px;}
+    .hero-h1{color:#1f1b16;font-size:3.05rem;line-height:1.16;}
+    .hero-h1 em{font-style:italic;color:var(--gold);}
+    .hero-sub{color:#5b554c;max-width:470px;}
+    .hero .btn-gold{background:#141414;color:#fff;border:none;}
+    .hero .btn-gold:hover{background:#2c2c2c;}
+    .hero .btn-ghost{color:var(--gold-dark);border:1.5px solid var(--gold);background:transparent;}
+    .hero .btn-ghost:hover{background:var(--gold);color:#fff;}
+    /* mobile: stack image below the text column */
+    @media (max-width: 768px){
+      .hero-inner{grid-template-columns:1fr;grid-template-rows:auto auto;min-height:auto;}
+      .hero-content{background:#f1eee8;order:1;padding:54px 24px 44px;}
+      .hero-photo{background:#f1eee8;order:2;height:430px;}
+      .hero-photo img{object-position:center;}
+      .hero-h1{font-size:2.1rem;line-height:1.2;}
+      .hero-sub{max-width:520px;margin-left:auto;margin-right:auto;}
+      .hero-text{width:100%;max-width:520px;margin:0 auto;}
+      .hero-eyebrow::after{margin-left:auto;margin-right:auto;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. TOP BAR
+  ============================================================ -->
+  <div class="top-bar">
+    <div class="container">
+      <span>9201 Sunset Blvd #418, West Hollywood, CA 90069</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. STICKY HEADER
+  ============================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="/" class="logo-wrap" aria-label="Sunset Biological Dentistry">
+        <img src="images/logo-horizontal.png" alt="Sunset Biological Dentistry" style="height:68px; width:auto; display:block;">
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="#">About Dr. Mersedeh</a></li>
+          <li><a href="#">Biological Dentistry</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">New Patients</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-ctas">
+        <a href="tel:3102751399" class="btn-outline">Call (310) 275-1399</a>
+        <a href="#" class="btn-primary">Book Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       3. HERO
+  ============================================================ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-text">
+            <span class="hero-eyebrow reveal">Biological Dentistry in West Hollywood, CA</span>
+            <h1 class="hero-h1 reveal">Where Whole-Body<br>Wellness Begins<br><em>With Your Mouth</em></h1>
+            <p class="hero-sub reveal">A biological approach to dentistry that looks beyond symptoms&mdash;addressing the root cause for a healthier mouth and a healthier you.</p>
+            <div class="hero-ctas reveal">
+              <a href="#" class="btn-gold">Book Your Consultation</a>
+              <a href="#about" class="btn-ghost">Learn Our Approach</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="images/heroedit.png" alt="Dr. Mersedeh Rajinia, Biological Dentist in West Hollywood">
+      </div>
+    </div>
+
+    <!-- Scrolling services marquee -->
+    <div class="hero-marquee">
+      <div class="marquee-track">
+        <span class="marquee-item">Amalgam Removal</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Ceramic Implants</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Ozone Therapy</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Root Canal Prevention</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Cavitation Surgery</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Extraction + PRF</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Biomimetic Restorations</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Frenectomy</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Invisalign</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Full Mouth Rehab</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Veneers</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Sedation Dentistry</span><span class="marquee-dot">·</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">Amalgam Removal</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Ceramic Implants</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Ozone Therapy</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Root Canal Prevention</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Cavitation Surgery</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Extraction + PRF</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Biomimetic Restorations</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Frenectomy</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Invisalign</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Full Mouth Rehab</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Veneers</span><span class="marquee-dot">·</span>
+        <span class="marquee-item">Sedation Dentistry</span><span class="marquee-dot">·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. ABOUT DR. RAJINIA — ZIGZAG 1
+  ============================================================ -->
+  <section class="zigzag" id="about">
+    <div class="container">
+      <div class="zigzag-inner">
+        <div class="zigzag-text reveal">
+          <span class="section-eyebrow">Meet Dr. Mersedeh Rajinia</span>
+          <h2>A Dentist Who Treats the Whole Person, Not Just the Teeth</h2>
+          <span class="section-divider"></span>
+          <p>Most dental visits focus on the problem in front of them. Dr. Mersedeh looks further. At Sunset Biological Dentistry, every recommendation is filtered through one question: what does this mean for the rest of your body?</p>
+          <p>USC-trained and honored in the top 10% of her graduating class, Dr. Mersedeh brings rigorous clinical precision to a deeply personal practice. She believes the mouth is a window into systemic health -- and she has built her entire practice around that belief.</p>
+          <p>She speaks English and Farsi, and takes genuine time with every patient. No rush. No judgment. No unnecessary procedures.</p>
+          <a href="#" class="text-link">Learn more about Dr. Mersedeh</a>
+        </div>
+        <div class="zigzag-image reveal">
+          <img src="images/dr-rajinia-consultation.webp" alt="Dr. Rajinia consulting with a patient" style="width:100%; height:480px; object-fit:cover; object-position:center center; border-radius:4px; display:block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. WHY BIOLOGICAL DENTISTRY — ZIGZAG 2
+  ============================================================ -->
+  <section class="zigzag bg-warm">
+    <div class="container">
+      <div class="zigzag-inner reverse">
+        <div class="zigzag-text reveal">
+          <span class="section-eyebrow">Why Biological Dentistry</span>
+          <h2>Root Cause. Not Symptom Management.</h2>
+          <span class="section-divider"></span>
+          <p>Conventional dentistry treats what it sees: the cavity, the crack, the gum line. Biological dentistry asks why it happened.</p>
+          <p>At Sunset Biological Dentistry, we use advanced diagnostics -- including CBCT 3D imaging and salivary testing -- to understand what your mouth is telling us about your body. Then we treat it with materials and methods designed to support long-term healing.</p>
+          <p>No mercury. No metal. No unnecessary procedures. No compromises.</p>
+          <a href="#" class="text-link">What is biological dentistry?</a>
+        </div>
+        <div class="zigzag-image reveal">
+          <img src="images/west-hollywood-office.webp" alt="Sunset Biological Dentistry office in West Hollywood" style="width:100%; height:460px; object-fit:cover; border-radius:4px; display:block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. EVERYTHING UNDER ONE ROOF — ZIGZAG 3
+  ============================================================ -->
+  <section class="zigzag">
+    <div class="container">
+      <div class="zigzag-inner">
+        <div class="zigzag-text reveal">
+          <span class="section-eyebrow">Comprehensive Biological Care</span>
+          <h2>All From One Trusted Provider, In-House</h2>
+          <span class="section-divider"></span>
+          <p>From your first biological exam through complex treatment -- Dr. Mersedeh handles everything in-house. No referrals. No fragmented care.</p>
+
+          <div class="services-checklist">
+            <div class="check-item">Amalgam (Mercury) Removal — SMART</div>
+            <div class="check-item">Ozone Therapy</div>
+            <div class="check-item">Ceramic / Zirconia Implants</div>
+            <div class="check-item">Cavitation Surgery</div>
+            <div class="check-item">Root Canal Prevention</div>
+            <div class="check-item">Extraction + PRF</div>
+            <div class="check-item">Biomimetic Restorations</div>
+            <div class="check-item">Frenectomy / Tongue Tie</div>
+            <div class="check-item">Invisalign (Airway-Focused)</div>
+            <div class="check-item">Sedation Dentistry</div>
+            <div class="check-item">Veneers &amp; Full Mouth Rehab</div>
+          </div>
+          <a href="#services" class="text-link">See all services</a>
+        </div>
+        <div class="zigzag-image reveal">
+          <img src="images/west-hollywood-dental.webp" alt="Biological dental care in West Hollywood" style="width:100%; height:520px; object-fit:cover; border-radius:4px; display:block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. MID-PAGE CTA
+  ============================================================ -->
+  <section class="midpage-cta">
+    <div class="container reveal">
+      <img src="images/logo-vertical-white-gold.png" alt="Sunset Biological Dentistry" style="height:104px; width:auto; margin:0 auto 24px; display:block;">
+      <h2>Ready to Find a Dentist Who Sees the Whole Picture?</h2>
+      <p>New patient consultations available in West Hollywood.<br>
+        <span>Insurance accepted &nbsp;·&nbsp; English &amp; Farsi</span>
+      </p>
+      <a href="#" class="btn-gold">Book My New Patient Consultation →</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. SERVICES GRID
+  ============================================================ -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <span class="section-eyebrow" style="text-align:center; display:block;">What We Treat</span>
+        <h2>Biological &amp; Holistic Dental Services</h2>
+        <span class="section-divider center"></span>
+      </div>
+      <div class="services-grid stagger">
+
+        <div class="service-card reveal">
+          <img src="images/service-holistic.jpg" alt="Holistic dentistry" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Holistic / Biological Dentistry</h3>
+            <div class="service-card-divider"></div>
+            <p>A whole-body approach that treats the mouth as part of an interconnected system -- from the oral microbiome to airway health and beyond.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-amalgam.jpg" alt="Amalgam removal" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Amalgam (Mercury) Removal</h3>
+            <div class="service-card-divider"></div>
+            <p>Safe removal of mercury amalgam fillings using the IAOMT SMART protocol -- protecting you, our team, and the environment.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-rootcanal.jpg" alt="Root canal prevention" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Root Canal Prevention</h3>
+            <div class="service-card-divider"></div>
+            <p>Biomimetic techniques and ozone therapy to save teeth that might otherwise require root canals -- treating the root cause first.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-implants.jpg" alt="Ceramic implants" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Ceramic / Zirconia Implants</h3>
+            <div class="service-card-divider"></div>
+            <p>Metal-free tooth replacement using zirconia implants -- biocompatible, non-corrosive, and beautifully natural-looking.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-cavitation.jpg" alt="Cavitation surgery" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Cavitation Surgery</h3>
+            <div class="service-card-divider"></div>
+            <p>Diagnosis and treatment of jaw cavitations -- areas of necrotic bone associated with chronic pain and systemic health issues.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-ozone.jpg" alt="Ozone therapy" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Ozone Therapy</h3>
+            <div class="service-card-divider"></div>
+            <p>Medical-grade ozone applied to eliminate bacteria and support healing -- antibiotic-free, minimally invasive, and highly effective.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-extraction.jpg" alt="Extraction with PRF" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Extraction + PRF Therapy</h3>
+            <div class="service-card-divider"></div>
+            <p>Extractions combined with platelet-rich fibrin from your own blood -- dramatically faster healing and superior bone regeneration.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-frenectomy.jpg" alt="Frenectomy tongue tie" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Frenectomy / Tongue Tie Release</h3>
+            <div class="service-card-divider"></div>
+            <p>Laser-assisted release of tongue and lip ties affecting feeding, breathing, sleep, and development in infants, children, and adults.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <img src="images/service-veneers.jpg" alt="Veneers and full mouth rehab" style="width:100%;height:280px;object-fit:cover;display:block;">
+          <div class="service-card-body">
+            <h3>Veneers &amp; Full Mouth Rehabilitation</h3>
+            <div class="service-card-divider"></div>
+            <p>Cosmetic artistry in alignment with biology -- natural, luminous results using biocompatible materials that preserve healthy structure.</p>
+            <a href="#" class="card-link">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. TRUST / CERTIFICATIONS BAR
+  ============================================================ -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-header reveal">
+        <h3>Trusted Certifications &amp; Affiliations</h3>
+      </div>
+      <div class="trust-logos stagger">
+        <div class="trust-logo-item reveal">
+          <img src="images/logo-iaomt.png" alt="IAOMT Certified Member" style="height:56px;width:auto;mix-blend-mode:multiply;">
+        </div>
+        <div class="trust-logo-item reveal">
+          <img src="images/logo-smart-certified.png" alt="SMART Protocol Certified" style="height:64px;width:auto;">
+        </div>
+        <div class="trust-logo-item reveal">
+          <img src="images/usc-logo.webp" alt="USC Herman Ostrow School of Dentistry" style="height:50px;width:auto;opacity:0.7;filter:grayscale(1);">
+        </div>
+        <div class="trust-logo-item reveal">
+          <img src="images/logo-invisalign.webp" alt="Invisalign Provider" style="height:40px;width:auto;opacity:0.7;filter:grayscale(1);">
+        </div>
+        <div class="trust-logo-item reveal">
+          <img src="images/logo-ada.webp" alt="American Dental Association" style="height:44px;width:auto;opacity:0.7;filter:grayscale(1);">
+        </div>
+        <div class="trust-logo-item reveal">
+          <img src="images/logo-cda.webp" alt="California Dental Association" style="height:44px;width:auto;opacity:0.7;filter:grayscale(1);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. PATIENT REVIEWS
+  ============================================================ -->
+  <section class="reviews-section">
+    <div class="container">
+      <div class="reviews-header reveal">
+        <span class="section-eyebrow" style="text-align:center; display:block;">Patient Stories</span>
+        <h2>What Patients Say About Dr. Mersedeh</h2>
+        <span class="section-divider center"></span>
+      </div>
+      <div class="reviews-grid stagger" style="grid-template-columns: repeat(3,1fr); display:grid; gap:28px;">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Doc Rajinia &amp; the whole team are so lovely! I'm normally scared to have dental work done but they made me feel at home &amp; very safe. The whole experience was so professional &amp; high-end."</p>
+          <span class="review-author">— Mattey Stroemer</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"This is indeed the most excellent dental care I have ever received! Everyone in every position goes above and beyond to ensure you understand and are comfortable with every aspect of your care."</p>
+          <span class="review-author">— Kith Still</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"They did an amazing job fixing my tooth — a complicated procedure my other dentist couldn't do. Dr. Rajinia performed superb work. I've been to many dentists, and this was truly exceptional."</p>
+          <span class="review-author">— Timothy Shparo</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Dr. Rajinia was phenomenal. She was so kind in answering all my questions and super supportive and caring with my teeth. I trust them with all my dental care."</p>
+          <span class="review-author">— Natalie Nelson</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Carmelita, Martha, and Dr. Rajinia were all amazing!"</p>
+          <span class="review-author">— Elizabeth Jane</span>
+        </div>
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"I love this place! All the ladies at Dr. Rajinia's office are so nice and helpful! I always enjoy my time here."</p>
+          <span class="review-author">— Alexis Luhrs</span>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:36px;" class="reveal">
+        <div style="display:inline-flex;align-items:center;gap:12px;background:white;padding:16px 28px;border-radius:4px;border:1px solid #e5ddd0;">
+          <svg height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <div>
+            <div style="font-family:var(--font-sans);font-size:16px;font-weight:700;color:var(--text);">Excellent on Google</div>
+            <div style="font-size:16px;color:var(--text-light);">4.7 ★ &nbsp;·&nbsp; 58 Reviews</div>
+          </div>
+          <a href="https://g.co/kgs/" target="_blank" style="font-family:var(--font-sans);font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-left:8px;">See All Reviews →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. ADDRESS + HOURS
+  ============================================================ -->
+  <section class="address-section">
+    <div class="container">
+      <div class="address-grid">
+        <div class="address-col reveal">
+          <img src="images/logo-horizontal.png" alt="Sunset Biological Dentistry" style="height:52px;width:auto;display:block;margin-bottom:22px;">
+          <h4>Address</h4>
+          <address>
+            9201 Sunset Blvd #418<br>
+            West Hollywood, CA 90069
+          </address>
+          <br>
+          <h4>Phone</h4>
+          <p><a href="tel:3102751399">(310) 275-1399</a></p>
+          <br>
+          <h4>Languages Spoken</h4>
+          <p>English &amp; Farsi</p>
+        </div>
+        <div class="address-col reveal">
+          <h4>Office Hours</h4>
+          <table class="hours-table">
+            <tr><td>Monday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr><td>Tuesday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr><td>Wednesday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr><td>Thursday</td><td>8:00 AM – 5:00 PM</td></tr>
+            <tr><td>Friday</td><td>Closed</td></tr>
+          </table>
+          <br>
+          <h4>Insurance</h4>
+          <p>Most Insurance Accepted</p>
+          <br>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=9201+Sunset+Blvd+%23418,+West+Hollywood,+CA+90069" target="_blank" class="directions-link">Get Directions</a>
+        </div>
+        <div class="address-col reveal">
+          <iframe
+            src="https://maps.google.com/maps?q=9201+Sunset+Blvd+%23418,+West+Hollywood,+CA+90069&output=embed"
+            width="100%"
+            height="280"
+            style="border:0; border-radius:4px; display:block;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Sunset Biological Dentistry location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       13. FOOTER
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">&copy; <span id="footer-year"></span> Sunset Biological Dentistry. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCROLL ANIMATION SCRIPT
+  ============================================================ -->
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
