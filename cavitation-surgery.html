@@ -349,3 +349,120 @@
           <p>Treating a cavitation means carefully cleaning out the unhealthy bone and supporting the area so it can heal the way it should. Because the site is within the jawbone, it&rsquo;s a precise, specialized procedure that calls for both experience and a gentle hand.</p>
           <p>Dr. Mersedeh thoroughly cleans and disinfects the area, then draws on biological protocols &mdash; including ozone to address bacteria without harsh chemicals, and PRF (platelet-rich fibrin made from your own blood) &mdash; to support healing and encourage healthy bone regeneration.</p>
           <p>Every step is chosen with one goal in mind: restoring the health of the jawbone and supporting your long-term oral and overall wellbeing &mdash; comfortably, and at your pace.</p>
+          <a href="#schedule" class="text-link">Schedule your evaluation</a>
+        </div>
+        <div class="zigzag-image reveal">
+          <span class="media-caption">Biological cavitation treatment with Dr. Mersedeh</span>
+          <img src="images/cav-surgery.jpg" alt="Biological cavitation treatment in progress at Sunset Biological Dentistry" loading="lazy" decoding="async" width="1200" height="800">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID-PAGE CTA -->
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Wondering whether an old extraction site ever fully healed? Let&rsquo;s take a closer look.</h2>
+      <a href="#schedule" class="btn-gold">Book Your New Patient Exam</a>
+    </div>
+  </section>
+
+  <!-- SCHEDULE / CONVERSION -->
+  <section class="schedule-section" id="schedule">
+    <div class="container">
+      <div class="schedule-header reveal">
+        <span class="section-eyebrow" style="text-align:center; display:block;">Take the Next Step</span>
+        <h2>Schedule Your New Patient Exam</h2>
+        <span class="section-divider center"></span>
+      </div>
+      <div class="schedule-grid">
+        <div class="schedule-copy reveal">
+          <p>The first step in evaluating &mdash; and, if needed, treating &mdash; a cavitation is a comprehensive new patient exam. We&rsquo;ll image your jawbone with advanced 3D imaging, review your dental history, and look closely at whether any areas may not have healed after an extraction.</p>
+          <p style="margin-bottom:6px;">Call our office to schedule your exam:</p>
+          <a href="tel:3102751399" class="schedule-phone">(310) 275-1399</a>
+          <p class="small">Prefer we reach out? Fill out the form and our team will contact you to help schedule your visit.</p>
+
+          <div class="review-callout">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&ldquo;Doc Rajinia &amp; the whole team are so lovely! I&rsquo;m normally scared to have dental work done but they made me feel at home &amp; very safe. The whole experience was so professional &amp; high-end.&rdquo;</blockquote>
+            <span class="author">&mdash; Mattey Stroemer</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <form class="lead-form" action="#" method="post" onsubmit="return false;">
+            <h3>Prefer Us to Call You?</h3>
+            <p class="form-intro">Share a few details and we&rsquo;ll reach out to help you schedule.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+            </div>
+            <div class="field">
+              <label for="besttime">Best Time &amp; Day to Call You Back?</label>
+              <input type="text" id="besttime" name="besttime">
+            </div>
+            <div class="field">
+              <label for="questions">Any Specific Questions for Us?</label>
+              <textarea id="questions" name="questions"></textarea>
+            </div>
+            <button type="submit" class="btn-gold">Request a Call Back</button>
+            <p class="privacy-note">We respect your privacy and will never share your information.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">&copy; <span id="footer-year"></span> Sunset Biological Dentistry. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="#schedule">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', () => {
+        const open = siteNav.classList.toggle('open');
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open);
+      });
+      siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }));
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

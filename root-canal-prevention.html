@@ -374,4 +374,120 @@
           <a href="#schedule" class="text-link">Schedule your evaluation</a>
         </div>
         <div class="zigzag-image reveal">
-          <img src="images/rc-exam.jpg" alt=
+          <img src="images/rc-exam.jpg" alt="Dr. Mersedeh Rajinia speaking with a patient during an exam" loading="lazy" decoding="async" width="1200" height="798">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MID-PAGE CTA -->
+  <section class="cta-band">
+    <div class="container reveal">
+      <h2>Before you commit to a root canal, find out if your tooth can still be saved.</h2>
+      <a href="#schedule" class="btn-gold">Book Your New Patient Exam</a>
+    </div>
+  </section>
+
+  <!-- SCHEDULE / CONVERSION -->
+  <section class="schedule-section" id="schedule">
+    <div class="container">
+      <div class="schedule-header reveal">
+        <span class="section-eyebrow" style="text-align:center; display:block;">Take the Next Step</span>
+        <h2>Schedule Your New Patient Exam</h2>
+        <span class="section-divider center"></span>
+      </div>
+      <div class="schedule-grid">
+        <div class="schedule-copy reveal">
+          <p>If you have a deep cavity, or you&rsquo;ve been told a root canal is your only option, come in and let us take a real look. We&rsquo;ll evaluate the tooth with advanced 3D imaging, walk you through exactly what we find, and go over every option together before anything is decided.</p>
+          <p style="margin-bottom:6px;">Call our office to schedule your exam:</p>
+          <a href="tel:3102751399" class="schedule-phone">(310) 275-1399</a>
+          <p class="small">Prefer we reach out? Fill out the form and our team will contact you to help schedule your visit.</p>
+
+          <div class="review-callout">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <blockquote>&ldquo;They did an amazing job fixing my tooth &mdash; a complicated procedure my other dentist couldn&rsquo;t do. Dr. Rajinia performed superb work. I&rsquo;ve been to many dentists, and this was truly exceptional.&rdquo;</blockquote>
+            <span class="author">&mdash; Timothy Shparo</span>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <form class="lead-form" action="#" method="post" onsubmit="return false;">
+            <h3>Prefer Us to Call You?</h3>
+            <p class="form-intro">Share a few details and we&rsquo;ll reach out to help you schedule.</p>
+            <div class="form-row">
+              <div class="field">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" autocomplete="family-name" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+            </div>
+            <div class="field">
+              <label for="besttime">Best Time &amp; Day to Call You Back?</label>
+              <input type="text" id="besttime" name="besttime">
+            </div>
+            <div class="field">
+              <label for="questions">Any Specific Questions for Us?</label>
+              <textarea id="questions" name="questions"></textarea>
+            </div>
+            <button type="submit" class="btn-gold">Request a Call Back</button>
+            <p class="privacy-note">We respect your privacy and will never share your information.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-copy">&copy; <span id="footer-year"></span> Sunset Biological Dentistry. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="#schedule">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Mobile hamburger toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const siteNav = document.querySelector('.site-nav');
+    if (navToggle && siteNav) {
+      navToggle.addEventListener('click', () => {
+        const open = siteNav.classList.toggle('open');
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open);
+      });
+      siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }));
+    }
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
