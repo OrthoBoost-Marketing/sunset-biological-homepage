@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fonts: preconnect + non-blocking load -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <!-- Fonts: self-hosted (Playfair Display + Lato) -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-700-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
 
   <title>Terms &amp; Conditions | Sunset Biological Dentistry | West Hollywood &amp; Beverly Hills</title>
   <meta name="description" content="The terms and conditions for Sunset Biological Dentistry in West Hollywood, CA, including SMS messaging opt-in, message frequency, opt-out instructions, and website use.">
@@ -80,8 +82,17 @@
     .section-eyebrow { display: block; font-family: var(--font-sans); font-size:16px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
     .section-divider { display: block; width: 40px; height: 2px; background: var(--gold); margin: 14px 0 22px; }
 
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal {
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .js .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .top-bar { background: var(--black); padding: 9px 0; font-family: var(--font-sans); font-size:16px; font-weight: 400; letter-spacing: 0.5px; color: rgba(255,255,255,0.75); }
     .top-bar .container { display: flex; justify-content: center; align-items: center; }
@@ -364,6 +375,7 @@
       }));
     }
 
+    document.documentElement.classList.add('js');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.08 });

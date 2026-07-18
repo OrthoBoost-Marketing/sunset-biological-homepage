@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/favicon-180.png">
+  <!-- Fonts: self-hosted (Playfair Display + Lato) -->
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-700-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/lato-400-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="preload" as="image" href="images/dr-rajinia-consultation.webp" fetchpriority="high">
 
   <title>Why Choose Sunset Biological Dentistry | West Hollywood &amp; Beverly Hills</title>
@@ -64,8 +67,17 @@
     .section-divider { display: block; width: 40px; height: 2px; background: var(--gold); margin: 14px 0 22px; }
     .section-divider.center { margin: 14px auto 22px; }
 
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal {
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    .js .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .stagger .reveal:nth-child(1) { transition-delay: 0s; }
     .stagger .reveal:nth-child(2) { transition-delay: 0.12s; }
     .stagger .reveal:nth-child(3) { transition-delay: 0.24s; }
@@ -499,6 +511,7 @@
       }));
     }
 
+    document.documentElement.classList.add('js');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.08 });
