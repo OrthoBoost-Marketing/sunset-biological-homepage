@@ -8,8 +8,8 @@
    The payload keys match the GHL merge fields EXACTLY (incl. the space in
    "Full Name") and are identical to the Green Dentistry reference build. */
 (function(){
-  var WEBHOOK='PASTE_SUNSET_GHL_WEBHOOK_URL_HERE'; // <-- set this when GHL webhook exists
-  var CONFIRM='appointment-request-confirmation.html';      // thank-you / conversion page
+  var WEBHOOK='https://services.leadconnectorhq.com/hooks/OewLxbrWOuUZFrHaXCpZ/webhook-trigger/nlOLbjSwLOGER6N7Wvpn';
+  var CONFIRM='/appointment-request-confirmation.html';      // thank-you / conversion page
   // URL query param -> webhook payload key (read in GHL as inboundWebhookRequest.<key>)
   var TRACK={utm_source:'utm_source',utm_medium:'utm_medium',utm_campaign:'utm_campaign',utm_content:'utm_content',gclid:'gclid',fbclid:'fbclid',gbraid:'gbraid',wbraid:'wbraid',offer:'Offer'};
   var KEY='sb_attr';
