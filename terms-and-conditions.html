@@ -120,6 +120,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .site-nav .has-dropdown:hover::before { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 16px; }
     .dropdown li a { display: block; padding: 11px 24px; font-family: var(--font-serif); font-size: 16px; font-weight: 500; color: var(--text); white-space: nowrap; transition: background 0.15s, color 0.15s; }
     .dropdown li a:hover { color: var(--gold); background: var(--bg-warm-2); }
+    /* Services dropdown: nested submenu (Implants) */
+    .dropdown .has-sub { position: relative; }
+    .dropdown .has-sub > a { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .dropdown .has-sub > a .sub-caret { font-size: 10px; color: var(--gold); }
+    .dropdown .submenu { position: absolute; top: -8px; left: 100%; background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: 4px; box-shadow: 0 14px 36px rgba(0,0,0,0.12); min-width: 208px; padding: 8px 0; list-style: none; display: none; z-index: 1001; }
+    .dropdown .has-sub:hover > .submenu { display: block; }
     .header-ctas { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
     .btn-outline { font-family: var(--font-sans); font-size:16px; font-weight: 600; letter-spacing: 0.4px; padding: 9px 18px; border: 1.5px solid var(--text); color: var(--text); border-radius: 3px; transition: all 0.2s; white-space: nowrap; }
@@ -197,6 +203,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .dropdown { position: static; transform: none; opacity: 1; visibility: visible; margin-top: 8px; box-shadow: none; border: none; background: transparent; min-width: 0; padding: 0; }
       .site-nav .has-dropdown:hover::before { display: none; }
       .dropdown li a { padding: 8px 0; color: var(--text-light); font-size: 16px; }
+      .dropdown .submenu { position: static; display: block; box-shadow: none; border: none; background: transparent; min-width: 0; padding: 0 0 0 16px; }
+      .dropdown .has-sub > a { justify-content: center; }
+      .dropdown .has-sub > a .sub-caret { display: none; }
       .header-ctas { justify-content: center; }
       .header-ctas .btn-outline { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -234,10 +243,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li><a href="/root-canal-prevention.html">Root Canal Prevention</a></li>
               <li><a href="/biomimetic-restorations.html">Biomimetic Restorations</a></li>
               <li><a href="/cosmetic-dentistry.html">Cosmetic Dentistry</a></li>
-              <li><a href="/ceramic-implants.html">Ceramic Implants</a></li>
-              <li><a href="/all-on-x.html">All-on-X</a></li>
+              <li><a href="/invisalign.html">Invisalign</a></li>
+              <li class="has-sub">
+                <a href="/implants.html">Implants <span class="sub-caret">&#9656;</span></a>
+                <ul class="submenu">
+                  <li><a href="/ceramic-implants.html">Ceramic Implants</a></li>
+                  <li><a href="/all-on-x.html">All-on-X</a></li>
+                </ul>
+              </li>
               <li><a href="/cavitation-surgery.html">Cavitation Surgery</a></li>
               <li><a href="/oral-surgery.html">Oral Surgery</a></li>
+              <li><a href="/sleep-apnea.html">Sleep Apnea &amp; Airway</a></li>
+              <li><a href="/myofunctional-therapy.html">Myofunctional Therapy</a></li>
             </ul>
           </li>
           <li class="has-dropdown">
